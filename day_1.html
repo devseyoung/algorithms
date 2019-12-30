@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+    function solution(number) {
+      let sum = 0;
+      for (let x = 1; x < number; x++) {
+        if (x % 3 === 0 || x % 5 === 0) {
+          sum += x;
+        }
+      }
+      return sum;
+    }
+
+    /*
+    Return the number (count) of vowels in the given string.
+    We will consider a, e, i, o, and u as vowels for this Kata.
+    The input string will only consist of lower case letters and/or spaces.
+    */
+
+    function getCount(str) {
+      const vowels = ['a', 'e', 'i', 'o', 'u'];
+      let vowelsCount = 0;
+      const lowercaseStr = str.toLowerCase()
+      for (let x = 0; x < lowercaseStr.length; x++) {
+        if (vowels.indexOf(lowercaseStr[x]) !== -1) {
+          vowelsCount++;
+        }
+      }
+      return vowelsCount;
+    }
+
+    /*
+    You are given an array(which will have a length of at least 3, but could be very large) containing integers
+      .The array is either entirely comprised of odd integers or entirely comprised of even integers except
+    for a single integer N.Write a method that takes the array as an argument and returns this "outlier"
+    N.
+    */
+
+    function findOutlierB(integers) {
+      const evenNum = integers.filter(x => x % 2 === 0);
+      const oddNum = integers.filter(x => x % 2 !== 0);
+      console.log(evenNum);
+      console.log(oddNum);
+      if (evenNum.length > 1) {
+        return oddNum[0];
+      } else {
+        return evenNum[0];
+      }
+    }
+    console.log(findOutlierB([1, 88, 3, 5, 7]));
+
+    /*
+    Write a function that takes in a string of one or more words, and returns the same string,
+      but with all five or more letter words reversed(Just like the name of this Kata).Strings passed in will consist of
+      only letters and spaces.Spaces will be included only when more than one word is present.
+
+    Examples: spinWords("Hey fellow warriors") => returns "Hey wollef sroirraw"
+    spinWords("This is a test") => returns "This is a test"
+    spinWords("This is another test") => returns "This is rehtona test"
+    */
+
+    // function spinWords(str) {
+    //   var strArr = str.split(' ');
+
+    //   strArr.forEach(function (word, index) {
+    //     if (word.length >= 5) {
+    //       strArr[index] = word.split('').reverse().join('');
+    //     }
+    //   })
+    //   return strArr.join(' ');
+    // }
+
+    function spinWords2(str) {
+      let strArr2 = str.split(' ');
+      for (let x = 0; x < strArr2.length; x++) {
+        if (strArr2[x].length >= 5) {
+          strArr2[x] = strArr2[x].split('').reverse().join('');
+        }
+      }
+      return strArr2.join(' ');
+    }
+
+    // Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+
+    function humanReadable(seconds) {
+      // TODO
+      if (seconds >= 0 && seconds <= 359999) {
+        let SS = seconds % 60;
+        let min = seconds / 60;
+        let MM = (Math.floor(min)) % 60;
+        let hour = seconds / 3600;
+        let HH = Math.floor(hour);
+
+        let pad = function (x) {
+          if (x < 10) {
+            return x = "0" + x;
+          } else {
+            return x;
+          }
+        }
+        return pad(HH) + ":" + pad(MM) + ":" + pad(SS);
+        // if (SS < 10) {
+        //   SS = "0" + SS;
+        // }
+        // if (MM < 10) {
+        //   MM = "0" + MM;
+        // }
+        // if (HH < 10) {
+        //   HH = "0" + HH;
+        // }
+        // return `${HH}:${MM}:${SS}`;
+      }
+    }
+    // A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+    function narcissistic(value) {
+      // Code me to return true or false
+      let _value = String(value).split('');
+      let _sum = 0;
+      console.log(_value);
+      for (let x = 0; x < _value.length; x++) {
+        _sum += (_value[x] ** _value.length);
+      }
+      return _sum === value;
+    }
+
+    // console.log(narcissistic(190));
+
+
+    // function narcissistic(value) {
+    //   const _value = String(value).split('');
+
+    //   let _result = 0;
+
+    //   for (ch of _value) {
+    //     const num = parseInt(ch, 0)
+
+    //     _result += Math.pow(num, _value.length);
+    //   }
+
+    //   return _result === value;
+    // }
+    function sol1(int) {
+      let sum2 = 0;
+      for (let x = 0; x < int; x++) {
+        if (x % 3 === 0 || x % 5 === 0) {
+          sum2 += x;
+        }
+      }
+      return sum2;
+    }
+    console.log(sol1(100));
+    console.clear()
+  </script>
+</body>
+
+</html>
