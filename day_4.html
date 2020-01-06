@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      Intervals
+      Intervals are represented by a pair of integers in the form of an array. The first value of the interval will always be less than the second value. Interval example: [1, 5] is an interval from 1 to 5. The length of this interval is 4.
+    */
+    function sumIntervals(intervals) {
+      //TODO
+      finalArr = [];
+      intervals.forEach(e => {
+        for (let i = e[0]; i < e[1]; i++) {
+          finalArr.push(i);
+        }
+      });
+      finalArr = [...new Set(finalArr)];
+      console.log(finalArr);
+      return finalArr.length;
+    }
+
+    // A Chain adding function
+    function add(n) {
+      let v = function (x) {
+        return add(n + x);
+      };
+
+      v.valueOf = v.toString = function () {
+        return n;
+      };
+
+      return v;
+    }
+
+    // console.log(add(1)(2)(3)(4));
+  </script>
+
+</body>
+
+</html>
